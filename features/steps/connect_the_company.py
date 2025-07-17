@@ -26,3 +26,7 @@ def click_connect_button(context):
 @then('verify correct tab opens')
 def verify_correct_tab(context):
     context.app.main_page.verify_correct_tab()
+
+@then('verify the URL')
+def verify_url(context):
+    context.app.base_page.verify_url('https://www.reelly.ai/for-developer')

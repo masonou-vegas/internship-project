@@ -9,3 +9,4 @@ Feature: The user can click on “Connect the company” on the left side of the
     Then click Continue
     Then Click on “Connect the developer”
     Then verify correct tab opens
+    And verify the URL
