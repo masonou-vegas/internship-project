@@ -1,3 +1,5 @@
+from time import sleep
+
 from pages.base_page import Page
 from selenium.webdriver.common.by import By
 
@@ -9,13 +11,20 @@ class LoginPage(Page):
 
     def open_login_page(self):
         self.driver.get('https://soft.reelly.io/sign-in')
+        self.driver.delete_all_cookies()
 
     def enter_email(self, email):
+        sleep(2)
+        self.wait_for_element(*self.EMAIL)
         self.input_text(email, *self.EMAIL)
 
 
     def enter_password(self, password):
+        sleep(2)
         self.input_text(password, *self.PASSWORD)
 
     def click_continue(self):
-        self.click(*self.CONTINUE)
+        sleep(2)
+        self.wait_for_element_click(*self.CONTINUE)
+        sleep(6)
+        #self.click(*self.CONTINUE)

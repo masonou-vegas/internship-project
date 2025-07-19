@@ -29,4 +29,5 @@ def verify_correct_tab(context):
 
 @then('verify the URL')
 def verify_url(context):
+    sleep(2)
     context.app.base_page.verify_url('https://www.reelly.ai/for-developer')
