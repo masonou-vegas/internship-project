@@ -2,6 +2,7 @@
 Feature: The user can click on “Connect the company” on the left side of the main page
 
 
+  @smoke
   Scenario: The user can click on “Connect the company” on the left side of the main page
     Given Open login page
     When Enter masonou@hotmail.com into email
