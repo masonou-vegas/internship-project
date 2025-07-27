@@ -31,3 +31,11 @@ def verify_correct_tab(context):
 def verify_url(context):
     sleep(2)
     context.app.base_page.verify_url('https://www.reelly.ai/for-developer')
+
+@then('click mobile menu')
+def click_mobile_menu(context):
+    context.app.main_page.click_mobile_menu()
+
+@then('Click on mobile connect button')
+def click_mobile_connect_button(context):
+    context.app.main_page.click_mobile_connect_button()

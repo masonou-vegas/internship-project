@@ -26,5 +26,5 @@ class LoginPage(Page):
     def click_continue(self):
         sleep(2)
         self.wait_for_element_click(*self.CONTINUE)
-        sleep(6)
+        sleep(2)
         #self.click(*self.CONTINUE)
