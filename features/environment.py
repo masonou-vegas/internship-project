@@ -37,21 +37,25 @@ def browser_init(context, scenario_name):
 
     ### BROWSERSTACK ###
     # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
-    # bs_user ='masonmcderp_3WJDjn'
-    # bs_key = 'zwybyEkxyBLrD8ZWx1tM'
-    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
-    #
-    # options = Options()
-    # bstack_options = {
-    #     "os" : "Windows",
-    #     "osVersion" : "11",
-    #     'browserName': 'Edge',
-    #     'sessionName': scenario_name,
-    # }
-    # options.set_capability('bstack:options', bstack_options)
-    #context.driver = webdriver.Remote(command_executor=url, options=options)
-    context.driver = webdriver.Chrome(options=chrome_options)
-    context.driver.maximize_window()
+    bs_user ='masonmcderp_3WJDjn'
+    bs_key = 'zwybyEkxyBLrD8ZWx1tM'
+    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+
+    options = Options()
+    bstack_options = {
+        # "os" : "Windows",
+        # "osVersion" : "11",
+        # 'browserName': 'Edge',
+        "deviceName": "Google Pixel 7",  # Choose any available device
+        "osVersion": "13.0",  # Match the device's OS
+        "realMobile": "true",  # Ensures it's not an emulator
+        "browserName": "Chrome",
+        'sessionName': scenario_name,
+    }
+    options.set_capability('bstack:options', bstack_options)
+    context.driver = webdriver.Remote(command_executor=url, options=options)
+    #context.driver = webdriver.Chrome(options=chrome_options)
+    #context.driver.maximize_window()
     context.driver.implicitly_wait(6)
     context.driver.wait = WebDriverWait(context.driver, timeout=10)
     context.app = Application(context.driver)
